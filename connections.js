@@ -1,21 +1,21 @@
 var contacts = JSON.stringify([{
     "name": "Jane Doe",
-    "position": "Just and Average Doe",
+    "position": "Just an Average Doe",
     "email": "jdoe@gmail.com",
     "notes": "who?",
-    "linkedin": "https://www.linkedin.com/in/janedoe/"
+    "linkedin": "https://www.linkedin.com"
 }, { 
     "name": "John Doe",
     "position": "The even more boring one",
     "email": "john@gmail.com",
     "notes": "Again, Who?",
-    "linkedin": "https://www.linkedin.com/in/johndoe/"
+    "linkedin": "https://www.linkedin.com"
 }, {
     "name": "John Smith",
     "position": "The other john",
     "email": "theotherjohn@gmail.com",
     "notes": "Johnnnn",
-    "linkedin": "https://www.linkedin.com/in/theotherjohn/"
+    "linkedin": "https://www.linkedin.com"
 },]);
 
 
@@ -46,7 +46,7 @@ window.onload = function() {
         // Create the card
         var card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('id', '${result.name}');
+        card.setAttribute('id', result.name);
         col.appendChild(card);
         
         // Create the first card body
@@ -96,7 +96,10 @@ window.onload = function() {
         linkedin.classList.add('card-link');
         linkedin.setAttribute('id', 'linkedin');
         linkedin.setAttribute('href', result.linkedin);
-        linkedin.innerHTML = "LinkedIn";
+        var icon = document.createElement('img');
+        icon.setAttribute('src', 'icon.png');
+        icon.setAttribute('id', 'icon');
+        linkedin.appendChild(icon);
         cardBody2.appendChild(linkedin);
     });
 };

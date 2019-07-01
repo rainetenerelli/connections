@@ -18,3 +18,9 @@ body {
     background-color: inherit;
     opacity: 0.5
 }
+
+
+#icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
