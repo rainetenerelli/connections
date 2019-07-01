@@ -44,62 +44,67 @@ window.onload = function() {
         currentRow.appendChild(col);
         
         // Create the card
-        var card = document.createElement('div');
-        card.classList.add('card');
-        card.setAttribute('id', result.name);
-        col.appendChild(card);
-        
-        // Create the first card body
-        var cardBody1 = document.createElement('div');
-        cardBody1.classList.add('card-body');
-        cardBody1.setAttribute('id', 'info')
-        card.appendChild(cardBody1);
-        
-        // Create title and add to cardBody1
-        var title = document.createElement('h5');
-        title.classList.add('card-title');
-        title.innerHTML = result.name;
-        cardBody1.appendChild(title);
-        
-        // Create subtitle and add to cardBody1
-        var subtitle = document.createElement('h6');
-        subtitle.classList.add('card-subtitle');
-        subtitle.classList.add('mb-2');
-        subtitle.classList.add('text-muted');
-        subtitle.innerHTML = result.position;
-        cardBody1.appendChild(subtitle);
-        
-        // Create the list of contacts and add to cardBody1
-        var list = document.createElement('ul');
-        list.classList.add('list-group');
-        list.classList.add('list-group-flush');
-        cardBody1.appendChild(list);
-        
-        var email = document.createElement('li');
-        email.classList.add('list-group-item');
-        email.innerHTML = 'email: ' + result.email;
-        list.appendChild(email);
-        
-        var notes = document.createElement('li');
-        notes.classList.add('list-group-item');
-        notes.innerHTML = 'notes: ' + result.notes;
-        list.appendChild(notes);
-        
-        // Create the section for the links
-        var cardBody2 = document.createElement('div');
-        cardBody2.classList.add('card-body');
-        cardBody2.setAttribute('id', 'links')
-        card.appendChild(cardBody2);
-        
-        // Create and add the links
-        var linkedin = document.createElement('a');
-        linkedin.classList.add('card-link');
-        linkedin.setAttribute('id', 'linkedin');
-        linkedin.setAttribute('href', result.linkedin);
-        var icon = document.createElement('img');
-        icon.setAttribute('src', 'icon.png');
-        icon.setAttribute('id', 'icon');
-        linkedin.appendChild(icon);
-        cardBody2.appendChild(linkedin);
+        createCard(col, result);
     });
+};
+
+function createCard(col, result) {
+    // Create the card
+    var card = document.createElement('div');
+    card.classList.add('card');
+    card.setAttribute('id', result.name);
+    col.appendChild(card);
+
+    // Create the first card body
+    var cardBody1 = document.createElement('div');
+    cardBody1.classList.add('card-body');
+    cardBody1.setAttribute('id', 'info')
+    card.appendChild(cardBody1);
+
+    // Create title and add to cardBody1
+    var title = document.createElement('h5');
+    title.classList.add('card-title');
+    title.innerHTML = result.name;
+    cardBody1.appendChild(title);
+
+    // Create subtitle and add to cardBody1
+    var subtitle = document.createElement('h6');
+    subtitle.classList.add('card-subtitle');
+    subtitle.classList.add('mb-2');
+    subtitle.classList.add('text-muted');
+    subtitle.innerHTML = result.position;
+    cardBody1.appendChild(subtitle);
+
+    // Create the list of contacts and add to cardBody1
+    var list = document.createElement('ul');
+    list.classList.add('list-group');
+    list.classList.add('list-group-flush');
+    cardBody1.appendChild(list);
+
+    var email = document.createElement('li');
+    email.classList.add('list-group-item');
+    email.innerHTML = 'email: ' + result.email;
+    list.appendChild(email);
+
+    var notes = document.createElement('li');
+    notes.classList.add('list-group-item');
+    notes.innerHTML = 'notes: ' + result.notes;
+    list.appendChild(notes);
+
+    // Create the section for the links
+    var cardBody2 = document.createElement('div');
+    cardBody2.classList.add('card-body');
+    cardBody2.setAttribute('id', 'links')
+    card.appendChild(cardBody2);
+
+    // Create and add the links
+    var linkedin = document.createElement('a');
+    linkedin.classList.add('card-link');
+    linkedin.setAttribute('id', 'linkedin');
+    linkedin.setAttribute('href', result.linkedin);
+    var icon = document.createElement('img');
+    icon.setAttribute('src', 'icon.png');
+    icon.setAttribute('id', 'icon');
+    linkedin.appendChild(icon);
+    cardBody2.appendChild(linkedin);
 };
