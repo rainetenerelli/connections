@@ -16,6 +16,12 @@ var contacts = JSON.stringify([{
     "email": "theotherjohn@gmail.com",
     "notes": "Johnnnn",
     "linkedin": "https://www.linkedin.com"
+}, {
+    "name": "Jane Smith",
+    "position": "The other jane",
+    "email": "theotherjane@gmail.com",
+    "notes": "Jannneeee",
+    "linkedin": "https://www.linkedin.com"
 },]);
 
 
