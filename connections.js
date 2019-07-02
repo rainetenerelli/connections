@@ -50,30 +50,67 @@ window.onload = function() {
         currentRow.appendChild(col);
         
         // Create the card
-        createCard(col, result);
+        createCard(col, result, idx);
     });
 };
 
-function createCard(col, result) {
+function createCard(col, result, idx) {
+    // Create the accordion container
+    var accordion = document.createElement('div');
+    accordion.setAttribute('id', 'accordion-' + idx);
+    col.appendChild(accordion);
+    
     // Create the card
     var card = document.createElement('div');
     card.classList.add('card');
     card.setAttribute('id', result.name);
-    col.appendChild(card);
+    accordion.appendChild(card);
+    
+    // Create the heading button containing the name
+    var header = document.createElement('div');
+    header.classList.add('card-header');
+    header.setAttribute('id', 'heading-' + idx);
+    card.appendChild(header)
+    
+    // Create the button for the name and add to header
+    var title = document.createElement('h5');
+    title.classList.add('mb-0');
+    header.appendChild(title);
+    
+    var btn = document.createElement('button');
+    btn.classList.add('btn');
+    btn.classList.add('btn-link');
+    btn.classList.add('collapsed');
+    btn.setAttribute('data-toggle', 'collapse');
+    btn.setAttribute('data-target', '#collapse-' + idx);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'collapse-' + idx);
+    btn.innerHTML = result.name;
+    title.appendChild(btn);
+    
+    // Create the wrapper for what collapse, then show
+    var hidden = document.createElement('div');
+    hidden.classList.add('collapse');
+    //hidden.classList.add('show');
+    hidden.setAttribute('id', 'collapse-' + idx);
+    hidden.setAttribute('aria-labelledby', 'heading-' + idx);
+    hidden.setAttribute('data-parent', '#accordion-' + idx);
+    card.appendChild(hidden)
+    
 
     // Create the first card body
     var cardBody1 = document.createElement('div');
     cardBody1.classList.add('card-body');
     cardBody1.setAttribute('id', 'info')
-    card.appendChild(cardBody1);
+    hidden.appendChild(cardBody1);
 
     // Create title and add to cardBody1
-    var title = document.createElement('h5');
-    title.classList.add('card-title');
-    title.innerHTML = result.name;
-    cardBody1.appendChild(title);
+//    var title = document.createElement('h5');
+//    title.classList.add('card-title');
+//    title.innerHTML = result.name;
+//    cardBody1.appendChild(title);
 
-    // Create subtitle and add to cardBody1
+//    // Create subtitle and add to cardBody1
     var subtitle = document.createElement('h6');
     subtitle.classList.add('card-subtitle');
     subtitle.classList.add('mb-2');
@@ -101,7 +138,7 @@ function createCard(col, result) {
     var cardBody2 = document.createElement('div');
     cardBody2.classList.add('card-body');
     cardBody2.setAttribute('id', 'links')
-    card.appendChild(cardBody2);
+    hidden.appendChild(cardBody2);
 
     // Create and add the links
     var linkedin = document.createElement('a');
