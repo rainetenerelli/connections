@@ -104,12 +104,6 @@ function createCard(col, result, idx) {
     cardBody1.setAttribute('id', 'info')
     hidden.appendChild(cardBody1);
 
-    // Create title and add to cardBody1
-//    var title = document.createElement('h5');
-//    title.classList.add('card-title');
-//    title.innerHTML = result.name;
-//    cardBody1.appendChild(title);
-
 //    // Create subtitle and add to cardBody1
     var subtitle = document.createElement('h6');
     subtitle.classList.add('card-subtitle');
