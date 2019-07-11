@@ -1,0 +1,26 @@
+body {
+    background-color: darkgray;
+}
+
+.jumbotron {
+    margin-bottom: 2rem
+}
+
+.card {
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+    width: 18rem;
+}
+
+.list-group-item {
+    background-color: inherit;
+    opacity: 0.5
+}
+
+
+#icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
